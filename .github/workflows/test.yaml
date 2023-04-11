@@ -19,7 +19,7 @@ jobs:
           path: node_modules
           key: npm-packages-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit !== 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
       - run: npm run test
         if: ${{ always() }}
